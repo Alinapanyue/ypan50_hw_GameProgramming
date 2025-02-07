@@ -5,7 +5,7 @@ using UnityEngine;
 public class test1 : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float speed;
+    public float speed;
     void Start()
     {
         print("test start");
@@ -14,7 +14,7 @@ public class test1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("test");
+        print(speed);
     }
 
     // Destroyed at the end
