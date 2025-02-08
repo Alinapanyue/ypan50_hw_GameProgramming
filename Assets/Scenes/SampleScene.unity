@@ -612,7 +612,7 @@ PrefabInstance:
     - target: {fileID: 1772464017895882020, guid: 927cce77a81114808aaef9a5edac9e2a,
         type: 3}
       propertyPath: m_Name
-      value: Enemy2
+      value: Enemy2_forChap6Testing
       objectReference: {fileID: 0}
     - target: {fileID: 4604813331581413823, guid: 927cce77a81114808aaef9a5edac9e2a,
         type: 3}
@@ -889,7 +889,7 @@ PrefabInstance:
     - target: {fileID: 8404862206380908523, guid: 06b3da405bffd4b24ad834c48ac0f27f,
         type: 3}
       propertyPath: m_Name
-      value: Enemy_Fly
+      value: Enemy_Fly_forChap6VisualScriptTesting
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
