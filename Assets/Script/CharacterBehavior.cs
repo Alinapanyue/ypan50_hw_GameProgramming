@@ -19,15 +19,15 @@ public class CharacterBehavior : MonoBehaviour
         movementValue = value.Get<Vector2>() * speed;
     }
 
-
     public void OnLook(InputValue value) {
         lookValue = value.Get<Vector2>().x * rotationSpeed;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.Rotate(movementValue.x * Time.deltaTime, 0, movementValue.y * Time.deltaTime);
+        // Changed Rotate to Translate for movement
+        transform.Translate(movementValue.x, 0, movementValue.y);
+        // Keep rotation for looking
         transform.Rotate(0, lookValue * Time.deltaTime, 0);
     }
 }
