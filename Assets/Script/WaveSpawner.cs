@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public GameObject Prefab;
+    public GameObject prefab;
     public float spawnRate;
     public float endTime;
     public float startTime;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        WavesManager.instance.waves.Add(this);
         InvokeRepeating("Spawn", startTime, spawnRate);
-        Invoke("CancelInvoke", endTime);
+        Invoke("EndSpawner", endTime);
     }
-    void Spawn() {
-        Instantiate(Prefab, transform.position, transform.rotation);
+
+    void Spawn()
+    {
+        Instantiate(prefab, transform.position, transform.rotation);
+    }
+
+    void EndSpawner()
+    {
+        WavesManager.instance.waves.Remove(this);
+        CancelInvoke();
     }
 
     // Update is called once per frame

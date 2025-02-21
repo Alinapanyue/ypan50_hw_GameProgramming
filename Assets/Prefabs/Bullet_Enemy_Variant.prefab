@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2793693539455971897, guid: 349c0c00026d744f582051c0d37e3bb6,
+        type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3740740187262581726, guid: 349c0c00026d744f582051c0d37e3bb6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 7936520682509346396, guid: 349c0c00026d744f582051c0d37e3bb6,
         type: 3}
       propertyPath: m_Name
-      value: Bullet_Player Variant
+      value: Bullet_Enemy_Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7936520682509346396, guid: 349c0c00026d744f582051c0d37e3bb6,
         type: 3}
