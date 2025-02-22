@@ -1,14 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class EnemyManager : MonoBehaviour
+public class EnemiesManager : MonoBehaviour
 {
     // Singleton pattern
-    public static EnemyManager instance;
+    public static EnemiesManager instance;
     
     // List to track all enemies
     public List<Enemy> enemies;
+    public UnityEvent onChanged;
+
+    public void AddEnemy(Enemy enemy)
+    {
+        enemies.Add(enemy);
+        onChanged.Invoke();
+    }
+
+    public void RemoveEnemy(Enemy enemy)
+    {
+        enemies.Remove(enemy);
+        onChanged.Invoke();
+    }
 
     void Awake()
     {

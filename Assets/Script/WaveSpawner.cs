@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI; 
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class WaveSpawner : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        WavesManager.instance.waves.Add(this);
+        WavesManager.instance.AddWave(this);
         InvokeRepeating("Spawn", startTime, spawnRate);
         Invoke("EndSpawner", endTime);
     }
@@ -23,7 +24,7 @@ public class WaveSpawner : MonoBehaviour
 
     void EndSpawner()
     {
-        WavesManager.instance.waves.Remove(this);
+        WavesManager.instance.RemoveWave(this);
         CancelInvoke();
     }
 

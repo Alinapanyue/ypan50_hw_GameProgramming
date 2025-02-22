@@ -7,18 +7,18 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         // Add this enemy to the manager's list when it starts
-        if (EnemyManager.instance != null)
+        if (EnemiesManager.instance != null)
         {
-            EnemyManager.instance.enemies.Add(this);
+            EnemiesManager.instance.AddEnemy(this);
         }
     }
 
     void OnDestroy()
     {
         // Optional: Remove from list when destroyed
-        if (EnemyManager.instance != null)
+        if (EnemiesManager.instance != null)
         {
-            EnemyManager.instance.enemies.Remove(this);
+            EnemiesManager.instance.RemoveEnemy(this);
         }
     }
 }

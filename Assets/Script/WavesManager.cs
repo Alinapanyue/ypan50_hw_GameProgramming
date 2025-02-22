@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WavesManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class WavesManager : MonoBehaviour
     
     // List to track all wave spawners
     public List<WaveSpawner> waves;
+    public UnityEvent onChanged; 
 
     void Awake()
     {
@@ -21,5 +23,17 @@ public class WavesManager : MonoBehaviour
         {
             Debug.LogError("Duplicated ScoreManager, ignoring this one", gameObject);  // Warning message
         }
+    }
+
+    public void AddWave(WaveSpawner wave)    // New method
+    {
+        waves.Add(wave);
+        onChanged.Invoke();
+    }
+
+    public void RemoveWave(WaveSpawner wave)  // New method
+    {
+        waves.Remove(wave);
+        onChanged.Invoke();
     }
 }
