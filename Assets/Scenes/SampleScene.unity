@@ -881,7 +881,7 @@ Transform:
   m_GameObject: {fileID: 886355298}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.77, y: 0.43, z: 1.01}
+  m_LocalPosition: {x: 3.77, y: -0.01, z: 3.89}
   m_LocalScale: {x: 0.6469731, y: 0.46365136, z: 0.84423}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b394304ac3cf846de83e154fe8f78655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 100
+  amount: 2000
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -1354,7 +1354,7 @@ PrefabInstance:
     - target: {fileID: 4604813331581413823, guid: 927cce77a81114808aaef9a5edac9e2a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.28501612
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4604813331581413823, guid: 927cce77a81114808aaef9a5edac9e2a,
         type: 3}
@@ -1364,7 +1364,7 @@ PrefabInstance:
     - target: {fileID: 4604813331581413823, guid: 927cce77a81114808aaef9a5edac9e2a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.1815705
+      value: 2.01
       objectReference: {fileID: 0}
     - target: {fileID: 4604813331581413823, guid: 927cce77a81114808aaef9a5edac9e2a,
         type: 3}
@@ -1578,6 +1578,7 @@ SceneRoots:
   - {fileID: 1739579373749738541}
   - {fileID: 1753261225}
   - {fileID: 1924784628}
+  - {fileID: 886355303}
   - {fileID: 312758168}
   - {fileID: 520920162}
   - {fileID: 1628222449}
@@ -1585,5 +1586,4 @@ SceneRoots:
   - {fileID: 44915655}
   - {fileID: 997575882}
   - {fileID: 699814922}
-  - {fileID: 886355303}
   - {fileID: 1560455608}
