@@ -65,6 +65,9 @@ public class EnemyFSM : MonoBehaviour
         else if (currentState == EnemyState.AttackBase) { AttackBase(); }
         else if (currentState == EnemyState.ChasePlayer) { ChasePlayer(); }
         else { AttackPlayer(); }
+
+        //DEBUG
+        Debug.Log("current state is: " + currentState);
     }
 
     public Transform baseTransform;
@@ -89,10 +92,24 @@ public class EnemyFSM : MonoBehaviour
     }
 
     void AttackBase()
+{
+    agent.isStopped = true;
+    Shoot();
+    
+    // Add this to check for state transitions
+    if (sightSensor.detectedObject != null)
     {
-        agent.isStopped = true;
-        Shoot();
+        currentState = EnemyState.ChasePlayer;
+        return;
     }
+    
+    // Add this to check if we're too far from base
+    float distanceToBase = Vector3.Distance(transform.position, baseTransform.position);
+    if (distanceToBase > baseAttackDistance * 1.1f)
+    {
+        currentState = EnemyState.GoToBase;
+    }
+}
 
     public float playerAttackDistance;
     void ChasePlayer()
@@ -112,6 +129,8 @@ public class EnemyFSM : MonoBehaviour
        }
        
     }
+
+
 
     void AttackPlayer()
     {
