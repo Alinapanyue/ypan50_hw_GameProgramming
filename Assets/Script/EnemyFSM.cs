@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyFSM : MonoBehaviour
 {
+    public ParticleSystem muzzleEffect;
     public enum EnemyState
     { 
         GoToBase,
@@ -159,14 +160,18 @@ public class EnemyFSM : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, baseAttackDistance);
     }
 
-    void Shoot()
+     void Shoot()
+{
+    var timeSinceLastShoot = Time.time - lastShootTime;
+    if (timeSinceLastShoot > fireRate)
     {
-        var timeSinceLastShoot = Time.time - lastShootTime;
-        if (timeSinceLastShoot > fireRate)
-        {
         lastShootTime = Time.time;
         Instantiate(bulletPrefab, transform.position, transform.rotation);
+        if (muzzleEffect != null)  // Add null check
+        {
+            muzzleEffect.Play();
         }
     }
+}
 
 }
