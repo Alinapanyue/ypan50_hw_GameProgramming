@@ -5,12 +5,18 @@ public class PlayerShooting : MonoBehaviour
 {
     public GameObject prefab;
     public GameObject shootPoint;
-    public ParticleSystem muzzleEffect;  // Reference to the muzzle flash particle system
+    public ParticleSystem muzzleEffect;
+    public AudioSource shootSound;  // Added audio source reference
+    public int bulletsAmount;
 
-    public void OnFire(InputValue value)
+    public void OnFire(InputValue value) 
     {
-        if (value.isPressed)
+        if (value.isPressed && Time.timeScale > 0)  // Added bullet check
         {
+            if (bulletsAmount > 0) {
+                bulletsAmount--; // Reduce bullets by 1
+            } // Added bullet check
+
             // Spawn the projectile
             GameObject clone = Instantiate(prefab);
             clone.transform.position = shootPoint.transform.position;
@@ -21,6 +27,9 @@ public class PlayerShooting : MonoBehaviour
             {
                 muzzleEffect.Play();
             }
+
+            // Play the shoot sound
+            shootSound.Play();
         }
     }
 }
